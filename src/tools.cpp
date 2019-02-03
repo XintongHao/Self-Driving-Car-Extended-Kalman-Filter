@@ -21,22 +21,12 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
     2. the estimation vector size should equal ground truck vector size;
   */
   if(estimations.size() != ground_truth.size() || estimations.size() == 0){
-<<<<<<< HEAD
-    cout << "Invalid estimation or ground_truth data" << endl;
-=======
     std::cout << "Invalid estimation or ground_truth data" << std::endl;
->>>>>>> e4c4428f86ed4487b97f3c983640f524e64e4852
     return rmse;
   }
   
   // accumulate squared residuals
   for( unsigned int i = 0; i < estimations.size(); i++){
-<<<<<<< HEAD
-    VectorXd residual = 
-  }
-
-    
-=======
     VectorXd residual = estimations[i] - ground_truth[i];
     // coefficient-wise multiplication
     residual = residual.array() * residual.array();
@@ -49,7 +39,6 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
   rmse = rmse.array().sqrt();
   // return result;
   return rmse;  
->>>>>>> e4c4428f86ed4487b97f3c983640f524e64e4852
 }
 
 MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
@@ -57,9 +46,6 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
    * TODO:
    * Calculate a Jacobian here.
    */
-<<<<<<< HEAD
-  
-=======
   MatrixXd Hj(3, 4);
   // recover state parameters
   float px = x_state(0);
@@ -84,5 +70,4 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
         py * (vx*py - vy*px) / c3, px * (px*vy - py*vx) / c3, (px / c2), (py / c2);
   
   return Hj;
->>>>>>> e4c4428f86ed4487b97f3c983640f524e64e4852
 }
